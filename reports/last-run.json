@@ -1,0 +1,36 @@
+{
+  "repo": "de-indie-light-cs-faq",
+  "kind": "employee",
+  "run_at": "2026-09-30T23:54:22+08:00",
+  "cases": 182,
+  "passed": 182,
+  "failed": 0,
+  "by_suite": {
+    "structure": {
+      "total": 52,
+      "failed": 0
+    },
+    "contract": {
+      "total": 25,
+      "failed": 0
+    },
+    "scenario": {
+      "total": 82,
+      "failed": 0
+    },
+    "script": {
+      "total": 5,
+      "failed": 0
+    },
+    "doc": {
+      "total": 3,
+      "failed": 0
+    },
+    "compliance": {
+      "total": 15,
+      "failed": 0
+    }
+  },
+  "skipped": [],
+  "failures": []
+}

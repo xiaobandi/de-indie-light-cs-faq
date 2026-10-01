@@ -1,0 +1,92 @@
+apiVersion: digital-employee/v1
+kind: DigitalEmployee
+metadata:
+  id: de_indie_light_cs_faq
+  name: 轻量客服与 FAQ 数字员工
+  alias: null
+  repo: de-indie-light-cs-faq
+  card_no: 4.4.6
+  group: indie
+  group_label: 独立开发者
+  phase: P2
+  complexity: M
+  score: 18
+  price: ¥49-129/月
+  channels:
+  - GitHub
+  - Coze扣子商店
+  - 千问办公
+  - 豆包工作
+  license: Proprietary
+  version: 1.0.0
+spec:
+  positioning: 出海产品的"夜间值班员"：7×24 双语应答，高价值问题秒转人工
+  users: 有付费用户、存在跨时区咨询的产品型开发者
+  boundary: 做：基于知识库的自动应答、工单摘要、FAQ 反哺；不做：退款审批、涉及资金/账号安全的操作（一律转人工）、无知识库依据的承诺性回复
+  kpi: 自动解决率 ≥60%；首次响应 ≤30 秒；转人工率 ≤40%；差评安抚后情绪转正率
+  roi_summary: 月省 15-30h ≈ ¥1200-2400，另加夜间时段流失止损
+  demand_refs:
+  - D08
+  - D22
+  - D07
+  demand_support: 充分
+  demand_evidence: 中
+runtime:
+  system_prompt: persona/system-prompt.md
+  boundary: persona/boundary.md
+  kpi: persona/kpi.md
+deliverables:
+  skills:
+  - slug: faq-feedback-loop
+    name: FAQ 反哺
+    kind: private
+    path: skills/faq-feedback-loop
+    version: 1.0.0
+    maturity: contract-complete
+  - slug: ticket-summary
+    name: 工单摘要
+    kind: private
+    path: skills/ticket-summary
+    version: 1.0.0
+    maturity: contract-complete
+  workflows:
+  - slug: wf-indie-cs-kb-build
+    name: 知识库构建
+    path: workflows/wf-indie-cs-kb-build
+    version: 1.0.0
+    phase: P2
+    calls:
+    - doc-qa-rag
+  - slug: wf-indie-cs-presale-qa
+    name: 自动应答
+    path: workflows/wf-indie-cs-presale-qa
+    version: 1.0.0
+    phase: P2
+    calls:
+    - doc-qa-rag
+    - multilingual-writing
+  - slug: wf-indie-cs-human-fallback
+    name: 人工接管分流
+    path: workflows/wf-indie-cs-human-fallback
+    version: 1.0.0
+    phase: P2
+    calls:
+    - ticket-summary
+  - slug: wf-indie-cs-faq-gen
+    name: 高频问题反哺 FAQ
+    path: workflows/wf-indie-cs-faq-gen
+    version: 1.0.0
+    phase: P2
+    calls:
+    - faq-feedback-loop
+  knowledge_base: kb/
+  connectors: connectors/bindings.yaml
+external_dependencies:
+- repo: agent-skills-core
+  version: 1.0.0
+  skills:
+  - complaint-soothe
+  - doc-qa-rag
+  - multilingual-writing
+  resolution: external
+spec_only_dependencies: []
