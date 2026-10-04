@@ -1,0 +1,15 @@
+{
+  "name": "wf-indie-cs-faq-gen",
+  "title": "高频问题反哺 FAQ",
+  "kind": "workflow",
+  "owner": "de-indie-light-cs-faq",
+  "complexity": "S",
+  "phase": "P2",
+  "one_liner": "未命中问题聚类 → FAQ 草稿 → 人工确认入库",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

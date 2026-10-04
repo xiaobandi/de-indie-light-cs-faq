@@ -1,59 +1,66 @@
 ---
-name: wf-indie-cs-faq-gen
+name: wf-indie-cs-kb-build
 description: >-
-  轻量客服与 FAQ 数字员工 的「高频问题反哺 FAQ」工作流：未命中问题聚类 → FAQ 草稿 → 人工确认入库。触发方式：定时（每周）。
-  当用户要完成「高频问题反哺 FAQ」这件事、或触发了上述条件时使用。
+  轻量客服与 FAQ 数字员工 的「知识库构建」工作流：文档/FAQ/历史工单导入 → 分段向量化 → 测试问答集验收。触发方式：人工（初次 + 月更）。
+  当用户要完成「知识库构建」这件事、或触发了上述条件时使用。
 license: Proprietary
+compatibility: >-
+  需要能读取工作区文件；若环境支持执行代码，将额外启用 scripts/ 下的确定性脚本路径。
+  跨 WorkBuddy / ChatGPT / DeepSeek Harness / Kimi Work / 豆包工作。
 metadata:
   author: PLATFORM
   version: "1.0.0"
   standard: agent-skills/v1
+  library: agent-skills-library
   layer: L2-workflow
   owner: de_indie_light_cs_faq
-  complexity: S
+  repo: de-indie-light-cs-faq
+  visibility: private_to_employee
+  delivery: employee
+  complexity: M
   phase: P2
-  source: library
+  source: new
 ---
 
-# 高频问题反哺 FAQ
+# 知识库构建
 
-> 归属：**轻量客服与 FAQ 数字员工**（`de-indie-light-cs-faq`）　触发：定时（每周）　
-> 复杂度 S　阶段 P2
+> 归属：**轻量客服与 FAQ 数字员工**（`de-indie-light-cs-faq`）　触发：人工（初次 + 月更）　
+> 复杂度 M　阶段 P2
 
 ## 一、这条工作流解决什么
 
-未命中问题聚类 → FAQ 草稿 → 人工确认入库
+文档/FAQ/历史工单导入 → 分段向量化 → 测试问答集验收
 
-**业务收益**：知识库自增强，复利 ROI
+**业务收益**：一次性省 8h ≈ ¥640
 
 ## 二、调用的 SKILL（必填列，逐条锁定版本）
 
 | 技能名 | slug | 来源仓 | 版本 |
 |---|---|---|---|
-| `FAQ 反哺` | `faq-feedback-loop` | 本仓 | v1.0.0 |
+| `文档问答（RAG）` | `doc-qa-rag` | core | v1.0.0 |
 
 > 公共技能来自 `agent-skills-core@1.0.0`，本仓库只做外部依赖引用，
 > **不内联复制**其正文——这是三层仓库体系的硬规则，避免同一能力多份副本各自漂移。
 
 ## 三、执行步骤（每步四要素齐备）
 
-### 步骤 1：未命中问题聚类
+### 步骤 1：文档/FAQ/历史工单导入
 
-- **做**：未命中问题聚类
+- **做**：文档/FAQ/历史工单导入
 - **输入来源**：用户提供的原始材料（工作流第 1 步没有「上一步」）/ 本员工知识库 `kb/` / 连接器只读数据；三者皆空时必须停在 G1 闸门
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 2：FAQ 草稿
+### 步骤 2：分段向量化
 
-- **做**：FAQ 草稿
+- **做**：分段向量化
 - **输入来源**：步骤 1 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式
 
-### 步骤 3：人工确认入库
+### 步骤 3：测试问答集验收
 
-- **做**：人工确认入库
+- **做**：测试问答集验收
 - **输入来源**：步骤 2 的产出 / 本员工知识库 `kb/` / 连接器只读数据
 - **依据与结论**：把本步结论对应到具体输入项
 - **未决 · 待填**：缺数据处写 `<待填>` 并给出获取方式

@@ -1,0 +1,15 @@
+{
+  "name": "wf-indie-cs-kb-build",
+  "title": "知识库构建",
+  "kind": "workflow",
+  "owner": "de-indie-light-cs-faq",
+  "complexity": "M",
+  "phase": "P2",
+  "one_liner": "文档/FAQ/历史工单导入 → 分段向量化 → 测试问答集验收",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}

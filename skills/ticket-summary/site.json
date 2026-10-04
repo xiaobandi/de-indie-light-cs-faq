@@ -1,0 +1,15 @@
+{
+  "name": "ticket-summary",
+  "title": "工单摘要",
+  "kind": "skill",
+  "owner": "de-indie-light-cs-faq",
+  "complexity": "S",
+  "phase": "P2",
+  "one_liner": "长对话压缩为结构化工单（对话记录 → 工单）",
+  "pages": [
+    "docs/使用手册.html",
+    "docs/使用示例.html",
+    "docs/用户场景.html",
+    "docs/架构与流程图.html"
+  ]
+}
