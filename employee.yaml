@@ -17,7 +17,7 @@ metadata:
   - Coze扣子商店
   - 千问办公
   - 豆包工作
-  license: Proprietary
+  license: Apache-2.0
   version: 1.0.0
 spec:
   positioning: 出海产品的"夜间值班员"：7×24 双语应答，高价值问题秒转人工
